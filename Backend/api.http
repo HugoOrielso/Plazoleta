@@ -1,0 +1,20 @@
+###########
+POST http://localhost:1234/api/admin/registro
+Content-Type: application/json
+
+{
+    "nombre": "Administrador",
+    "correo": "admin@gmail.com",
+    "code": 1234
+}
+
+
+##########
+GET http://localhost:1234/api/prueba-usuario
+Content-Type: "application/json"
+Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY0ZDgxNmYzODllZTEyODliNWEyNzRhMSIsIm5vbWJyZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNjkxOTQ0NTQ5LCJleHAiOjE2OTQ1MzY1NDl9._ppPwzdV06i43bVKffMeMEic57PbWWjjeFdwUgkAN-c"
+
+#########
+POST http://localhost:1234/api/admin/registrarPropietario
+Content-Type: "application/json"
+Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY0ZDgxNmYzODllZTEyODliNWEyNzRhMSIsIm5vbWJyZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNjkxOTUwNjY3LCJleHAiOjE2OTQ1NDI2Njd9.kCNilkbl8XT9jmvV-HlD5TbnT0YPp0sf3RhDkOe9d6E"
