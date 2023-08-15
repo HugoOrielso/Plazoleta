@@ -43,10 +43,8 @@ const registrarPropietario = async (req, res) => {
     try {
         let user = req.user;
         let propietario = req.body;
-        
-        console.log(user.rol);
-        console.log("Propietario:", propietario);
-        
+        propietario.telefono = parseInt(propietario.telefono)
+        propietario.identificacion = parseInt(propietario.identificacion)
         if (!user.rol || user.rol !== "Administrador") {
             res.redirect('/')
             return res.status(400).json({
@@ -55,25 +53,20 @@ const registrarPropietario = async (req, res) => {
             });
             
         }
-        
         let pwd = await bcrypt.hash(propietario.password, 10);
         propietario.password = pwd;
         let nuevoPropietario = new Propietario(propietario);
-        
         let propietarioRepetido = await Propietario.findOne({
             email: propietario.email,
             identificacion: propietario.identificacion
         }).exec();
-        
         if (propietarioRepetido) {
             return res.status(400).json({
                 status: "error",
                 message: "El propietario existe en la base de datos y no se puede registrar nuevamente."
             });
         }
-        
         const propietarioAlmacenado = await nuevoPropietario.save();
-        
         if (!propietarioAlmacenado) {
             return res.status(400).json({
                 status: "error",
@@ -98,37 +91,34 @@ const registrarPropietario = async (req, res) => {
 const sendMessage = async (req,res)=>{
     let code = req.params.code
     let phoneNumber = req.body.phoneNumber
-    console.log(code, phoneNumber)
-    console.log(code)
     if(!code){
         res.status(401).json({
             status: "error",
             message: "Faltan datos por enviar."
         })
     }else{
-
                          //   Llamado api comentar si es necesario!!!!!!!!!!!!!!!!!!!!!!!!!
         // const accountSid = "AC2ef70e9146b3677c3d3747d4f063682e"
         // const authToken = "49ed98d234d9aaabe65b4578ce824060"
         // const client = require('twilio')(accountSid, authToken)
         // try {
-            // client.messages.create({
-                // body: `Administrador restaurante FESC, tu código de verificación es: ${code}`,
-                // from: "+15736746198",
-                // to: phoneNumber
-            // }).then(message=> console.log(message.sid))
-            // res.status(200).json({
-                // status: "success",
-                // codigoVerificacion: code,
-            // })
-        // } catch (error) {
-            // console.log(error);
-        // }
+        //     client.messages.create({
+        //         body: `Administrador restaurante FESC, tu código de verificación es: ${code}`,
+        //         from: "+15736746198",
+        //         to: phoneNumber
+        //     }).then(message=> console.log(message.sid))
+        //     res.status(200).json({
+        //         status: "success",
+        //         codigoVerificacion: code,
+        //      })
+        //  } catch (error) {
+        //      console.log(error);
+        //  }
 
-    }
+    }    
     res.status(200).json({
         status: "success",
-        codigoVerificacion: code,
+        codigoVerificacion: code
     })
 }
 
@@ -140,9 +130,7 @@ const login = async (req,res)=>{
             status: "success",
             message: "Faltan datos por enviar"
         })
-    
     }
-
     let user = await Admin.findOne({email: params.email}).exec()
     if(!user){ 
         return res.status(404).json({
@@ -170,11 +158,6 @@ const login = async (req,res)=>{
         token: token
     })
 }
-
-
-
-
-
 
 module.exports = {
     registro,

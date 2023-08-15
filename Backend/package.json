@@ -22,7 +22,7 @@
     "twilio": "^4.15.0",
     "validator": "^13.11.0"
   },
-  "devDependencies": {
+  "devDdencies": {
     "nodemon": "^3.0.1"
   }
 }

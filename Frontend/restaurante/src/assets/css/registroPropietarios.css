@@ -35,3 +35,9 @@
     justify-content: center;
     max-width: 1480px;
 }
+
+.error-message{
+    background: #c54747;
+    border: 1px solid #ff2323;
+    color: white;
+}

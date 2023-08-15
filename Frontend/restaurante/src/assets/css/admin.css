@@ -24,3 +24,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.error-message{
+    background: #c54747;
+    border: 1px solid #ff2323;
+    color: white;
+}
