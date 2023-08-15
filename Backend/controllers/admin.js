@@ -98,6 +98,7 @@ const registrarPropietario = async (req, res) => {
 const sendMessage = async (req,res)=>{
     let code = req.params.code
     let phoneNumber = req.body.phoneNumber
+    console.log(code, phoneNumber)
     console.log(code)
     if(!code){
         res.status(401).json({
@@ -105,21 +106,23 @@ const sendMessage = async (req,res)=>{
             message: "Faltan datos por enviar."
         })
     }else{
+
+                         //   Llamado api comentar si es necesario!!!!!!!!!!!!!!!!!!!!!!!!!
         // const accountSid = "AC2ef70e9146b3677c3d3747d4f063682e"
         // const authToken = "49ed98d234d9aaabe65b4578ce824060"
         // const client = require('twilio')(accountSid, authToken)
         // try {
-        //     client.messages.create({
-        //         body: `Administrador restaurante FESC, tu código de verificación es: ${code}`,
-        //         from: "+15736746198",
-        //         to: phoneNumber
-        //     }).then(message=> console.log(message.sid))
-        //     res.status(200).json({
-        //         status: "success",
-        //         codigoVerificacion: code,
-        //     })
+            // client.messages.create({
+                // body: `Administrador restaurante FESC, tu código de verificación es: ${code}`,
+                // from: "+15736746198",
+                // to: phoneNumber
+            // }).then(message=> console.log(message.sid))
+            // res.status(200).json({
+                // status: "success",
+                // codigoVerificacion: code,
+            // })
         // } catch (error) {
-        //     console.log(error);
+            // console.log(error);
         // }
 
     }

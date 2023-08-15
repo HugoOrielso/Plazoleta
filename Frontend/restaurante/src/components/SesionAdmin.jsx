@@ -2,13 +2,10 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import '../assets/css/admin.css'
 import {  useNavigate } from 'react-router-dom'
-import UseAuth from '../hooks/UseAuth'
 import Header from './Header'
 import Nav from './Nav'
 
 const SesionAdmin = () => {
-    const {setAuth} = UseAuth()
-    const {auth} = UseAuth()
     const navegarA = useNavigate()
     const {register, handleSubmit} = useForm({})
     const [ saved, setSaved ] = useState("not_sended")
@@ -27,7 +24,6 @@ const SesionAdmin = () => {
             localStorage.setItem("token", data.token)
             localStorage.setItem("admin",JSON.stringify(data.admin) )
             setSaved("login")
-            setAuth(data.user)
             navegarA("/registroPropietarios")
           }else{
             setSaved("error")

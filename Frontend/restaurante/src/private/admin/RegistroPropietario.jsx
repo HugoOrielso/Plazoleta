@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form'
 import '../../assets/css/registroPropietarios.css'
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
-import useAuthAdmin from '../../hooks/useAuthAdmin'
 
 const RegistroPropietario = () => {
     const {register, handleSubmit} = useForm({})
