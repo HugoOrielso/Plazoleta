@@ -5,7 +5,6 @@ const Inicio = () => {
   return (
     <>
         <Header/>
-        <Nav/>
     
     </>
   )

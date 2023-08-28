@@ -18,7 +18,6 @@ const AdminSchema = Schema({
         type: String,
         default: "Administrador"
     }
-
 })
 
-module.exports = model('Admin',AdminSchema,"administrador");
+module.exports = model('Admin',AdminSchema,"Administradores");

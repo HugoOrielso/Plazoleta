@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
-import '../../assets/css/registroPropietarios.css'
 import Header from '../../components/Header'
-import Nav from '../../components/Nav'
+import '../../assets/css/registroPropietarios.css'
 
 const RegistroPropietario = () => {
     const {register, handleSubmit, formState: {errors}} = useForm({})
@@ -24,12 +23,11 @@ const RegistroPropietario = () => {
     <>   
 
         <Header/>
-        <Nav/>
         <section className='container-formulario-propietarios'>
         <form onSubmit={handleSubmit(registrarOwner)} className='formulario-propietarios'>
             <h3>Registrar propietario</h3>
             <label htmlFor='nombre'>
-                <input type="text" id='nombre' placeholder='nombre' {...register("nombre",
+                <input type="text" className={ `${errors.nombre ? 'error-message' : ""}`} id='nombre' placeholder='Nombre' {...register("nombre",
                 {
                     required: "El campo nombre es requerido.",
                     pattern: {
@@ -38,10 +36,9 @@ const RegistroPropietario = () => {
                     }
                 }
                 )} />
-                {errors.nombre && <p className="error-message">{errors.nombre.message}</p>}
             </label>
             <label htmlFor='apellido'>
-                <input type="text" id='apellido' placeholder='apellido' {...register("apellido",
+                <input type="text" id='apellido' className={`${errors.apellido ? 'error-message' : ""}`} placeholder='Apellido' {...register("apellido",
                 {
                     required: "El campo apellido es requerido",
                     pattern: {
@@ -50,10 +47,9 @@ const RegistroPropietario = () => {
                     }
                 }
                 )} />
-                {errors.apellido && <p className="error-message">{errors.apellido.message}</p>}
             </label>
             <label htmlFor='email'>    
-                <input type="text" id='email' placeholder='email' {...register("email",
+                <input type="text" className={`${errors.email ? 'error-message' : ""}`} id='email' placeholder='Email' {...register("email",
                 {
                     required: "El campo email es requerido.",
                     pattern: {
@@ -63,10 +59,9 @@ const RegistroPropietario = () => {
                     }
                 }
                 )} />
-                {errors.email && <p className="error-message">{errors.email.message}</p>}
             </label>
             <label htmlFor="identificación">
-                <input type="text" placeholder='identificación' id='identificación' {...register("identificacion",
+                <input type="text" className={`${errors.identificacion ? 'error-message ' : ""}`} placeholder='Identificación' id='identificación' {...register("identificacion",
                 {
                     required: "El campo identificación es requerido.",
                     pattern:{
@@ -79,10 +74,9 @@ const RegistroPropietario = () => {
                     }
                 }
                 )} />
-                {errors.identificacion && <p className="error-message">{errors.identificacion.message}</p>}
             </label>
             <label htmlFor="teléfono">
-                <input type="text" id='teléfono' placeholder='teléfono' {...register("telefono",
+                <input type="text" className={`${errors.telefono ? 'error-message' : ""}`} id='teléfono' placeholder='Teléfono' {...register("telefono",
                 {
                     required: "El campo teléfono es requerido",
                     pattern:{
@@ -100,10 +94,9 @@ const RegistroPropietario = () => {
                     },
                 }
                 )} />
-                {errors.telefono && <p className="error-message">{errors.telefono.message}</p>}
             </label>
             <label htmlFor="contraseña">
-                <input type="password" id='contraseña' placeholder='contraseña' {...register("password",
+                <input type="password" id='contraseña' className={`${errors.password ? 'error-message' : ""}`} placeholder='Contraseña' {...register("password",
                 {
                     required: "El campo contraseña es requerido.",
                     minLength: {
@@ -112,7 +105,6 @@ const RegistroPropietario = () => {
                     }
                 }
                 )} />
-                {errors.password && <p className="error-message">{errors.password.message}</p>}
             </label>
             <button type='submit'>Registrar propietario</button>
         </form>

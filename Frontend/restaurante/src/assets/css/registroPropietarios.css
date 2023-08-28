@@ -9,7 +9,7 @@
     padding: 1em;
 }
 
-.formulario-propietarios > input {
+.formulario-propietarios > label > input {
     width: 15em;
     display: flex;
     align-items: center;
@@ -28,6 +28,23 @@
     box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
+.formulario-propietarios > button {
+    color: white;
+    background: #e53935;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #e35d5b, #e53935);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #e35d5b, #e53935); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.formulario-propietarios > button:hover{
+    transform: scale(.95);
+}
+
+.formulario-propietarios > button:active{
+    transform: scale(1.05);
+}
+
 .container-formulario-propietarios{
     display: flex;
     flex-flow: column nowrap;
@@ -37,7 +54,72 @@
 }
 
 .error-message{
-    background: #c54747;
+    background: #ffffff;
     border: 1px solid #ff2323;
-    color: white;
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 5px 2px rgb(255, 0, 0, 0.5);
+    text-align: center;
 }
+
+.container-vista-principal{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2em;
+    gap: 2em;
+}
+
+.input-router{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #ff2323;
+    border-radius: 2em;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+
+.input-router::after{
+    content: '';
+    display: block;
+    width: 1%;
+    height: 200%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg) translateY(-40%) translateX(-15rem);
+    box-shadow: 0 0 2em 2em rgb(255, 255, 255);
+    opacity: .4;
+    transition: all .5s ease;
+}
+
+.input-router:hover::after{
+    transform: rotate(45deg) translateY(-40%) translateX(15rem);
+    opacity: 0;
+}
+
+.input-router > img {
+    height: 15em;
+    width: 15em;
+    object-fit: cover;
+
+}
+
+.input-router > span {
+    width: 100%;
+    transition: all .5s ease;
+    color: black;
+}
+
+.input-router:hover{
+    transform: scale(.95);
+}
+.input-router:active{
+    transform: scale(1.05);
+}
+
+
+

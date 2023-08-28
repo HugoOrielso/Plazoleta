@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import '../assets/css/admin.css'
 import {  useNavigate } from 'react-router-dom'
 import Header from './Header'
-import Nav from './Nav'
 import { useLocalStorage } from 'react-use'
 
 const SesionAdmin = () => {
@@ -31,7 +30,7 @@ const SesionAdmin = () => {
             
               
               setTimeout(()=>{
-                navegarA("/registroPropietarios")
+                navegarA("/vistaPrincipalAdmin")
               },2000)
             
           }else{
@@ -42,7 +41,6 @@ const SesionAdmin = () => {
     <>
 
     <Header/>
-    <Nav/>
 
     {saved=="login" ? <strong className="alert alert-success"> Administrador identificado correctamente </strong>: ""}
     {saved=="error" ? <strong className="alert alert-danger"> Administrador no identificado </strong>: ""}
@@ -51,7 +49,7 @@ const SesionAdmin = () => {
           <h3>Inicio de sesión administradores</h3>
           <div>
 
-            <input type="text" placeholder='Correo electrónico' name='email' {...register("email",{ required: "El campo email es requerido.",
+            <input type="text" className={`${errors.email ? 'error-message' : ""}`} placeholder='Correo electrónico' name='email' {...register("email",{ required: "El campo email es requerido.",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                 message: 'Formato de correo electrónico inválido.'
@@ -59,11 +57,9 @@ const SesionAdmin = () => {
             })}
             
             />
-            {errors.email && <p className="error-message">{errors.email.message}</p>}
           </div>
             <div>
-              <input type="password" placeholder='Contraseña' name='contraseña' {...register("password", { required: "El campo contraseña es requerido."})}/>
-              {errors.password && <p className="error-message">{errors.password.message}</p>}
+              <input type="password" className={`${errors.password ? 'error-message' : ""}`} placeholder='Contraseña' name='contraseña' {...register("password", { required: "El campo contraseña es requerido."})}/>
             </div>
               <button type='submit'>Iniciar sesión</button>
         </form>

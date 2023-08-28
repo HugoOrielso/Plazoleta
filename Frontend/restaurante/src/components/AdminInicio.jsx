@@ -2,7 +2,6 @@ import { useState } from 'react';
 import '../assets/css/mensaje.css'
 import { Link } from 'react-router-dom';
 import Header from './Header';
-import Nav from './Nav';
 const AdminInicio = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [codeVerificacion, setCodeVerificacion] = useState('');
@@ -52,7 +51,6 @@ const AdminInicio = () => {
     <>
     <Header/>
 
-    <Nav  />
     <div className='container-form'>
       <form className="formularioAdmin">
         <h3>Verificación de administrador</h3>

@@ -1,0 +1,47 @@
+.contenedor-formulario{
+    width: 30em;
+}
+
+.formulario-restaurante{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+    padding: 1em;
+    background-color: #ffffff;
+    border: solid 1px black;
+    width: 100%;
+}
+.formulario-restaurante > input {
+    width: 20em;
+    text-align: center;
+}
+
+.formulario-restaurante > button {
+    padding: .4em;
+    color: #ffffff;
+    background: #e53935;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #e35d5b, #e53935);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #e35d5b, #e53935); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    cursor: pointer;
+    border: none;
+    transition: all .3s ease;
+}
+
+.formulario-restaurante > button:hover {
+    transform: scale(.95);
+}
+
+.formulario-restaurante > button:active {
+    transform: scale(1.05);
+}
+
+.error-message{
+    background: #ffffff;
+    border: 1px solid #ff2323;
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 5px 2px rgb(255, 0, 0, 0.5);
+    text-align: center;
+}
